@@ -2,17 +2,16 @@
    DESIGN TOKENS — Aselegal × Plaza de Cuba
    ============================================================ */
 :root {
-  /* Color — OKLCH, neutros tintados hacia el azul marino corporativo */
-  --ink:       oklch(0.21 0.05 252);          /* #0A1F3D azul marino profundo */
-  --ink-soft:  oklch(0.30 0.045 252);
-  --ink-mute:  oklch(0.46 0.025 252);
-  --cream:     oklch(0.984 0.005 90);          /* #FAFAF7 off-white */
-  --cream-2:   oklch(0.965 0.008 80);          /* surface alt cálida */
-  --rule:      oklch(0.86 0.015 80);
-  --rule-deep: oklch(0.32 0.04 252);
-  --gold:      oklch(0.665 0.075 70);          /* #B8956A dorado/ocre */
-  --gold-ink:  oklch(0.50 0.075 65);           /* dorado oscurecido para texto AA */
-  --terracotta: oklch(0.58 0.10 35);
+  /* Color — OKLCH — Aselegal brand: #041C4B + #0080B5 */
+  --ink:         oklch(0.22 0.08 264);          /* #041C4B azul marino oscuro */
+  --ink-soft:    oklch(0.32 0.06 262);
+  --ink-mute:    oklch(0.50 0.03 262);
+  --cream:       oklch(0.984 0.005 90);          /* #FAFAF7 off-white */
+  --cream-2:     oklch(0.965 0.008 80);          /* surface alt cálida */
+  --rule:        oklch(0.86 0.015 80);
+  --rule-deep:   oklch(0.32 0.04 265);
+  --accent:      oklch(0.57 0.14 218);           /* #0080B5 azul corporativo */
+  --accent-ink:  oklch(0.44 0.12 218);           /* azul más oscuro para texto AA */
 
   /* Espacio — fluido */
   --space-3xs: clamp(0.25rem, 0.2rem + 0.2vw, 0.4rem);
@@ -26,8 +25,8 @@
   --space-3xl: clamp(7rem, 4.5rem + 10vw, 13rem);
 
   /* Tipografía */
-  --serif: "Spectral", "Iowan Old Style", "Hoefler Text", Georgia, serif;
-  --sans:  "Manrope", system-ui, -apple-system, "Segoe UI", Helvetica, Arial, sans-serif;
+  --serif: "Plus Jakarta Sans", "Stone Sans ITC", system-ui, sans-serif;
+  --sans:  "Raleway", system-ui, -apple-system, "Segoe UI", Helvetica, Arial, sans-serif;
 
   --fs-micro:  0.75rem;
   --fs-small:  0.875rem;
@@ -93,7 +92,7 @@ section { padding-block: clamp(3rem, 1.5rem + 7vw, 8rem); }
   font-weight: 500;
   letter-spacing: 0.18em;
   text-transform: uppercase;
-  color: var(--gold-ink);
+  color: var(--accent-ink);
   display: inline-flex;
   align-items: center;
   gap: 0.75rem;
@@ -102,7 +101,7 @@ section { padding-block: clamp(3rem, 1.5rem + 7vw, 8rem); }
   content: "";
   width: 1.75rem;
   height: 1px;
-  background: var(--gold);
+  background: var(--accent);
 }
 
 .display {
@@ -161,7 +160,7 @@ p { text-wrap: pretty; }
   margin: 0;
 }
 .hrule--gold {
-  border-top-color: var(--gold);
+  border-top-color: var(--accent);
 }
 
 /* ============================================================
@@ -184,7 +183,7 @@ p { text-wrap: pretty; }
   cursor: pointer;
 }
 .btn:hover { background: var(--ink-soft); transform: translateY(-1px); }
-.btn:focus-visible { outline: 2px solid var(--gold); outline-offset: 3px; }
+.btn:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
 
 .btn--ghost {
   background: transparent;
@@ -197,7 +196,7 @@ p { text-wrap: pretty; }
   color: var(--ink);
   border-color: var(--cream);
 }
-.btn--invert:hover { background: var(--gold); border-color: var(--gold); color: var(--ink); }
+.btn--invert:hover { background: var(--accent); border-color: var(--accent); color: var(--ink); }
 
 .link-arrow {
   display: inline-flex;
@@ -225,7 +224,7 @@ p { text-wrap: pretty; }
 }
 .link-arrow:hover .arrow { transform: translateX(6px); }
 .link-arrow:hover::after { transform: scaleX(0.4); }
-.link-arrow:focus-visible { outline: 2px solid var(--gold); outline-offset: 4px; border-radius: 2px; }
+.link-arrow:focus-visible { outline: 2px solid var(--accent); outline-offset: 4px; border-radius: 2px; }
 
 .link-quiet {
   font-size: var(--fs-small);
@@ -270,7 +269,7 @@ p { text-wrap: pretty; }
 }
 .brandmark .mark-dot {
   width: 0.4rem; height: 0.4rem; border-radius: 50%;
-  background: var(--gold);
+  background: var(--accent);
   display: inline-block;
   align-self: center;
   margin-right: 0.1rem;
@@ -380,12 +379,12 @@ p { text-wrap: pretty; }
    ============================================================ */
 .hero {
   position: relative;
-  padding-block: clamp(5.5rem, 4rem + 5vw, 10rem) clamp(3rem, 2rem + 5vw, 7rem);
+  padding-block: clamp(5rem, 4rem + 3vw, 8rem) clamp(2.5rem, 1.5rem + 3vw, 5rem);
 }
 .hero__inner {
   display: grid;
   grid-template-columns: 1fr;
-  gap: var(--space-xl);
+  gap: var(--space-m);
   align-items: start;
 }
 .hero__title { margin: 0; }
@@ -402,7 +401,7 @@ p { text-wrap: pretty; }
   font-style: italic;
   font-weight: 400;
   color: var(--ink);
-  background-image: linear-gradient(transparent 78%, color-mix(in oklab, var(--gold) 50%, transparent) 78%, color-mix(in oklab, var(--gold) 50%, transparent) 92%, transparent 92%);
+  background-image: linear-gradient(transparent 78%, color-mix(in oklab, var(--accent) 50%, transparent) 78%, color-mix(in oklab, var(--accent) 50%, transparent) 92%, transparent 92%);
 }
 .hero__sub {
   margin-top: var(--space-m);
@@ -429,10 +428,10 @@ p { text-wrap: pretty; }
 }
 .duo__name {
   font-family: var(--serif);
-  font-weight: 500;
-  line-height: 1.05;
-  letter-spacing: -0.025em;
-  font-size: clamp(1.375rem, 1rem + 1.6vw, 2.25rem);
+  font-weight: 600;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  font-size: clamp(1.125rem, 0.85rem + 1.2vw, 1.625rem);
   color: var(--ink);
 }
 .duo__name span { display: block; }
@@ -454,7 +453,7 @@ p { text-wrap: pretty; }
   font-weight: 500;
   letter-spacing: 0.14em;
   text-transform: uppercase;
-  color: var(--gold-ink);
+  color: var(--accent-ink);
 }
 .hero__indicator {
   position: absolute;
@@ -485,11 +484,16 @@ p { text-wrap: pretty; }
   100% { transform: scaleY(0); transform-origin: bottom; }
 }
 
+@media (min-width: 540px) {
+  .hero__inner { gap: var(--space-l); }
+}
+
 @media (min-width: 1024px) {
   .hero__inner {
-    grid-template-columns: minmax(0, 1.5fr) minmax(340px, 1fr);
-    gap: var(--space-2xl);
+    grid-template-columns: minmax(0, 1.1fr) minmax(420px, 1fr);
+    gap: var(--space-l);
   }
+  .duo__col { min-height: 180px; }
 }
 
 /* ============================================================
@@ -524,14 +528,14 @@ p { text-wrap: pretty; }
   opacity: 0.06;
   background-image:
     radial-gradient(circle at 20% 30%, color-mix(in oklab, var(--cream) 55%, transparent) 0, transparent 50%),
-    radial-gradient(circle at 80% 70%, color-mix(in oklab, var(--gold) 50%, transparent) 0, transparent 55%);
+    radial-gradient(circle at 80% 70%, color-mix(in oklab, var(--accent) 50%, transparent) 0, transparent 55%);
   mix-blend-mode: screen;
 }
 .plaza__inner {
   position: relative;
 }
-.plaza .eyebrow { color: var(--gold); }
-.plaza .eyebrow::before { background: var(--gold); }
+.plaza .eyebrow { color: var(--accent); }
+.plaza .eyebrow::before { background: var(--accent); }
 .plaza__display {
   font-family: var(--serif);
   font-weight: 300;
@@ -545,7 +549,7 @@ p { text-wrap: pretty; }
 .plaza__display em {
   font-style: italic;
   font-weight: 400;
-  color: var(--gold);
+  color: var(--accent);
 }
 .plaza__body {
   font-size: var(--fs-lead);
@@ -558,7 +562,7 @@ p { text-wrap: pretty; }
   font-family: var(--serif);
   font-style: italic;
   font-size: 0.875rem;
-  color: var(--gold);
+  color: var(--accent);
 }
 .plaza__cta { margin-top: var(--space-l); }
 
@@ -606,7 +610,7 @@ p { text-wrap: pretty; }
   font-size: clamp(2.25rem, 4.5vw, 4rem);
   line-height: 0.9;
   letter-spacing: -0.03em;
-  color: var(--gold);
+  color: var(--accent);
   font-variant-numeric: tabular-nums;
 }
 .service__title {
@@ -762,7 +766,7 @@ p { text-wrap: pretty; }
   font-family: var(--serif);
   font-size: clamp(3.5rem, 6vw, 5rem);
   line-height: 0.7;
-  color: var(--gold);
+  color: var(--accent);
   font-style: italic;
   font-weight: 300;
 }
@@ -826,8 +830,8 @@ p { text-wrap: pretty; }
 }
 .input:focus, .select:focus, .textarea:focus {
   outline: none;
-  border-bottom-color: var(--gold);
-  background: linear-gradient(to bottom, transparent 75%, color-mix(in oklab, var(--gold) 18%, transparent) 100%);
+  border-bottom-color: var(--accent);
+  background: linear-gradient(to bottom, transparent 75%, color-mix(in oklab, var(--accent) 18%, transparent) 100%);
 }
 .textarea { resize: vertical; min-height: 7rem; }
 .select {
@@ -859,7 +863,7 @@ p { text-wrap: pretty; }
   content: "";
   position: absolute;
   inset: 2px;
-  background: var(--gold);
+  background: var(--accent);
   border-radius: 1px;
 }
 .check a { text-decoration: underline; text-decoration-color: var(--rule); text-underline-offset: 3px; }
@@ -897,7 +901,7 @@ p { text-wrap: pretty; }
 .credo__rule {
   display: block;
   width: 60px; height: 1px;
-  background: var(--gold);
+  background: var(--accent);
   margin: var(--space-m) auto 0;
 }
 
@@ -962,10 +966,10 @@ p { text-wrap: pretty; }
   letter-spacing: 0.18em;
   text-transform: uppercase;
   font-weight: 600;
-  color: var(--gold-ink);
+  color: var(--accent-ink);
 }
 .post__cat::before {
-  content: ""; width: 1.25rem; height: 1px; background: var(--gold);
+  content: ""; width: 1.25rem; height: 1px; background: var(--accent);
 }
 
 .post__title {
@@ -1064,7 +1068,7 @@ details.q .ans {
   letter-spacing: 0.2em;
   text-transform: uppercase;
   font-weight: 600;
-  color: var(--gold);
+  color: var(--accent);
   margin: 0 0 var(--space-s);
 }
 .footer__brand .brandmark { color: var(--cream); }
@@ -1087,7 +1091,7 @@ details.q .ans {
   color: color-mix(in oklab, var(--cream) 75%, transparent);
   transition: color 240ms var(--ease);
 }
-.footer ul a:hover { color: var(--gold); }
+.footer ul a:hover { color: var(--accent); }
 
 .footer__credo {
   border: 1px solid color-mix(in oklab, var(--cream) 22%, transparent);
@@ -1105,7 +1109,7 @@ details.q .ans {
 }
 .footer__credo .duo-line .sep {
   width: 1.5rem; height: 1px;
-  background: var(--gold);
+  background: var(--accent);
 }
 .footer__credo p {
   font-family: var(--serif);
@@ -1158,13 +1162,13 @@ details.q .ans {
   overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0;
 }
 
-::selection { background: color-mix(in oklab, var(--gold) 45%, transparent); color: var(--ink); }
+::selection { background: color-mix(in oklab, var(--accent) 45%, transparent); color: var(--ink); }
 
 /* ============================================================
    HERO — DARK VARIANT
    ============================================================ */
 .hero--dark {
-  background: var(--ink);
+  background: var(--accent);
 }
 .hero--dark::after {
   content: '';
@@ -1172,35 +1176,35 @@ details.q .ans {
   inset: 0;
   pointer-events: none;
   background:
-    radial-gradient(ellipse 60% 70% at 80% 30%, oklch(0.30 0.07 260 / 0.55) 0%, transparent 100%),
-    radial-gradient(ellipse 50% 50% at 5% 90%, oklch(0.24 0.05 250 / 0.40) 0%, transparent 100%);
+    radial-gradient(ellipse 60% 70% at 85% 20%, oklch(0.22 0.08 264 / 0.45) 0%, transparent 100%),
+    radial-gradient(ellipse 55% 50% at 5% 95%, oklch(0.22 0.08 264 / 0.35) 0%, transparent 100%);
 }
 .hero--dark .hero__inner { position: relative; z-index: 1; }
-.hero--dark .eyebrow { color: var(--gold); }
-.hero--dark .eyebrow::before { background: var(--gold); }
+.hero--dark .eyebrow { color: var(--cream); }
+.hero--dark .eyebrow::before { background: oklch(0.90 0.02 218); }
 .hero--dark .hero__title .h1 { color: var(--cream); }
 .hero--dark .hero__title em {
   color: var(--cream);
   background-image: linear-gradient(
     transparent 78%,
-    oklch(0.665 0.075 70 / 0.30) 78%,
-    oklch(0.665 0.075 70 / 0.30) 92%,
+    oklch(0.22 0.08 264 / 0.28) 78%,
+    oklch(0.22 0.08 264 / 0.28) 92%,
     transparent 92%
   );
 }
-.hero--dark .hero__sub { color: oklch(0.78 0.018 252); }
+.hero--dark .hero__sub { color: oklch(0.93 0.015 218); }
 .hero--dark .link-arrow { color: var(--cream); }
 .hero--dark .link-arrow::after { background: var(--cream); }
 .hero--dark .hero__indicator .bar {
-  background: linear-gradient(to bottom, transparent, oklch(0.70 0.02 252));
+  background: linear-gradient(to bottom, transparent, oklch(0.92 0.01 218));
 }
-.hero--dark .hero__indicator { color: oklch(0.60 0.02 252); }
+.hero--dark .hero__indicator { color: oklch(0.88 0.015 218); }
 
 /* ============================================================
    NAV — ON DARK HERO
    ============================================================ */
 .nav--on-dark:not(.is-scrolled) .brandmark { color: var(--cream); }
-.nav--on-dark:not(.is-scrolled) .brandmark .mark-dot { background: var(--gold); }
+.nav--on-dark:not(.is-scrolled) .brandmark .mark-dot { background: var(--accent); }
 .nav--on-dark:not(.is-scrolled) .brandmark sup { color: oklch(0.65 0.015 252); }
 .nav--on-dark:not(.is-scrolled) .nav__menu li > a { color: var(--cream); }
 .nav--on-dark:not(.is-scrolled) .nav__menu li > a::after { background: var(--cream); }
@@ -1209,7 +1213,7 @@ details.q .ans {
 .nav--on-dark:not(.is-scrolled) .nav-toggle span { background: var(--cream); }
 .nav--on-dark:not(.is-scrolled) .btn--ghost {
   color: var(--cream);
-  border-color: oklch(0.40 0.04 252);
+  border-color: oklch(0.75 0.05 218);
 }
 .nav--on-dark:not(.is-scrolled) .btn--ghost:hover {
   background: var(--cream);
@@ -1234,9 +1238,8 @@ details.q .ans {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  gap: var(--space-m);
-  min-height: 220px;
-  padding: var(--space-l) var(--space-m);
+  gap: var(--space-s);
+  padding: var(--space-m) var(--space-s);
 }
 .duo__sep {
   width: 1px;
@@ -1259,33 +1262,34 @@ details.q .ans {
   font-style: italic;
   font-weight: 400;
   font-size: 0.875rem;
-  color: var(--gold-ink);
+  color: var(--accent-ink);
   flex-shrink: 0;
   z-index: 1;
 }
 
-/* Duo on dark hero */
+/* Duo on blue hero — card blanca para contraste */
 .hero--dark .duo {
-  background: oklch(0.26 0.048 252);
-  border-color: oklch(0.32 0.042 252);
+  background: var(--cream);
+  border-color: oklch(0.90 0.02 218);
 }
-.hero--dark .duo__sep { background: oklch(0.32 0.042 252); }
+.hero--dark .duo__sep { background: oklch(0.88 0.025 218); }
 .hero--dark .duo__bridge {
-  background: oklch(0.24 0.05 252);
-  border-color: oklch(0.36 0.04 252);
-  color: var(--gold);
+  background: var(--cream-2);
+  border-color: oklch(0.86 0.03 218);
+  color: var(--accent);
 }
-.hero--dark .duo__label { color: var(--gold); }
-.hero--dark .duo__name { color: var(--cream); }
-.hero--dark .duo__name .alt { color: oklch(0.68 0.02 252); }
-.hero--dark .duo__role { color: oklch(0.62 0.022 252); }
-.hero--dark .duo__meta { color: var(--gold); }
+.hero--dark .duo__label { color: var(--accent-ink); }
+.hero--dark .duo__name { color: var(--ink); }
+.hero--dark .duo__name .alt { color: var(--ink-soft); }
+.hero--dark .duo__role { color: var(--ink-mute); }
+.hero--dark .duo__meta { color: var(--accent); }
 
 /* Duo mobile stack */
 @media (max-width: 539px) {
   .duo { flex-direction: column; }
-  .duo__sep { width: 100%; height: 1px; justify-content: center; }
-  .duo__col { min-height: auto; }
+  .duo__sep { width: 100%; height: 1px; }
+  .duo__col { padding: var(--space-s) var(--space-xs); text-align: center; }
+  .duo__meta { justify-content: center; }
 }
 
 /* ============================================================
@@ -1393,7 +1397,7 @@ details.q .ans {
    CONTACT — DARK REDESIGN
    ============================================================ */
 .contact {
-  background: var(--ink);
+  background: var(--accent);
   color: var(--cream);
   position: relative;
   overflow: hidden;
@@ -1403,16 +1407,16 @@ details.q .ans {
   position: absolute;
   inset: 0;
   pointer-events: none;
-  background: radial-gradient(ellipse 55% 60% at 90% 10%, oklch(0.30 0.07 260 / 0.45) 0%, transparent 100%);
+  background: radial-gradient(ellipse 55% 60% at 90% 10%, oklch(0.22 0.08 264 / 0.40) 0%, transparent 100%);
 }
 .contact .grid-12 { position: relative; z-index: 1; }
 
-.contact__eyebrow { color: var(--gold) !important; }
-.contact__eyebrow::before { background: var(--gold) !important; }
+.contact__eyebrow { color: var(--cream) !important; }
+.contact__eyebrow::before { background: oklch(0.90 0.02 218) !important; }
 .contact__heading { color: var(--cream); }
 .contact__lead {
   font-size: var(--fs-lead);
-  color: oklch(0.75 0.018 252);
+  color: oklch(0.93 0.015 218);
   line-height: 1.5;
   max-width: 44ch;
 }
@@ -1422,40 +1426,40 @@ details.q .ans {
   flex-direction: column;
   gap: 0;
   margin-top: var(--space-l);
-  border-top: 1px solid oklch(0.32 0.04 252);
+  border-top: 1px solid oklch(0.65 0.06 218);
 }
 .contact__detail-item {
   display: flex;
   align-items: center;
   gap: 1rem;
   padding: 1rem 0;
-  border-bottom: 1px solid oklch(0.32 0.04 252);
-  color: oklch(0.80 0.018 252);
+  border-bottom: 1px solid oklch(0.65 0.06 218);
+  color: oklch(0.95 0.01 218);
   text-decoration: none;
   transition: color 240ms var(--ease);
 }
 .contact__detail-item:hover { color: var(--cream); }
-.contact__detail-item--wa { color: oklch(0.70 0.12 145); }
-.contact__detail-item--wa:hover { color: oklch(0.80 0.14 145); }
+.contact__detail-item--wa { color: oklch(0.82 0.12 145); }
+.contact__detail-item--wa:hover { color: oklch(0.90 0.10 145); }
 .contact__detail-item--addr { cursor: default; }
 .contact__detail-icon {
   width: 36px;
   height: 36px;
   border-radius: 8px;
-  border: 1px solid oklch(0.32 0.04 252);
+  border: 1px solid oklch(0.70 0.06 218);
   display: grid;
   place-items: center;
   flex-shrink: 0;
-  color: var(--gold);
+  color: var(--cream);
 }
-.contact__detail-icon--wa { color: oklch(0.72 0.14 145); border-color: oklch(0.72 0.14 145 / 0.4); }
+.contact__detail-icon--wa { color: oklch(0.82 0.12 145); border-color: oklch(0.72 0.14 145 / 0.5); }
 .contact__detail-label {
   display: block;
   font-size: 0.6875rem;
   font-weight: 600;
   letter-spacing: 0.15em;
   text-transform: uppercase;
-  color: oklch(0.55 0.02 252);
+  color: oklch(0.82 0.03 218);
   margin-bottom: 1px;
 }
 .contact__detail-val {
@@ -1512,7 +1516,7 @@ details.q .ans {
   content: '';
   position: absolute;
   inset: 0;
-  background: radial-gradient(ellipse at top, color-mix(in oklab, var(--gold) 8%, transparent) 0%, transparent 55%);
+  background: radial-gradient(ellipse at top, color-mix(in oklab, var(--accent) 8%, transparent) 0%, transparent 55%);
   pointer-events: none;
 }
 .credo__card {
@@ -1531,4 +1535,4 @@ details.q .ans {
 /* Remove old credo__inner full-width styles */
 .credo__card .credo__title { font-size: var(--fs-mega); }
 .credo__card .credo__body { max-width: 54ch; }
-.credo__title .one em { color: var(--gold-ink); }
+.credo__title .one em { color: var(--accent-ink); }
