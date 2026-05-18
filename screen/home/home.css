@@ -259,29 +259,30 @@ p { text-wrap: pretty; }
 }
 .brandmark {
   display: inline-flex;
-  align-items: baseline;
-  gap: 0.5rem;
-  font-family: var(--serif);
-  font-size: 1.5rem;
-  font-weight: 500;
-  letter-spacing: -0.02em;
-  color: var(--ink);
+  align-items: center;
 }
-.brandmark .mark-dot {
-  width: 0.4rem; height: 0.4rem; border-radius: 50%;
-  background: var(--accent);
-  display: inline-block;
-  align-self: center;
-  margin-right: 0.1rem;
+.nav__logo {
+  display: block;
+  height: 34px;
+  width: auto;
+  transition: filter 400ms var(--ease), opacity 400ms var(--ease);
 }
-.brandmark sup {
-  font-family: var(--sans);
-  font-size: 0.625rem;
-  font-weight: 600;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  color: var(--ink-mute);
-  margin-left: 0.15rem;
+.nav__logo-sep {
+  display: block;
+  width: 1px;
+  height: 18px;
+  background: var(--rule);
+  margin-inline: 0.875rem;
+  flex-shrink: 0;
+  transition: background 400ms var(--ease);
+}
+.nav__logo-plazacuba { display: inline-flex; align-items: center; }
+.nav__logo--pc { height: 22px; }
+
+/* Hide Plaza Cuba logo on narrow screens — Aselegal only in mobile nav */
+@media (max-width: 639px) {
+  .nav__logo-sep,
+  .nav__logo-plazacuba { display: none; }
 }
 .nav__menu {
   display: none;
@@ -373,6 +374,14 @@ p { text-wrap: pretty; }
   font-weight: 400;
   letter-spacing: -0.02em;
 }
+.drawer__brand {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-s);
+  margin-bottom: var(--space-m);
+}
+.drawer__logo { display: block; height: 28px; width: auto; }
+.drawer__logo--pc { height: 18px; }
 
 /* ============================================================
    HERO
@@ -550,6 +559,13 @@ p { text-wrap: pretty; }
   font-style: italic;
   font-weight: 400;
   color: var(--accent);
+}
+.plaza__logo {
+  display: block;
+  width: clamp(180px, 32vw, 300px);
+  height: auto;
+  filter: brightness(0) invert(1);
+  opacity: 0.90;
 }
 .plaza__body {
   font-size: var(--fs-lead);
@@ -1071,7 +1087,23 @@ details.q .ans {
   color: var(--accent);
   margin: 0 0 var(--space-s);
 }
-.footer__brand .brandmark { color: var(--cream); }
+.footer__logo-link { display: inline-block; }
+.footer__logo {
+  display: block;
+  width: 140px;
+  height: auto;
+  filter: brightness(0) invert(1);
+  opacity: 0.90;
+}
+.footer__logo--pc {
+  width: 180px;
+  opacity: 0.80;
+}
+.footer__brand {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-s);
+}
 .footer__brand .brandmark sup { color: color-mix(in oklab, var(--cream) 55%, transparent); }
 .footer__tag {
   font-family: var(--serif);
@@ -1203,9 +1235,13 @@ details.q .ans {
 /* ============================================================
    NAV — ON DARK HERO
    ============================================================ */
-.nav--on-dark:not(.is-scrolled) .brandmark { color: var(--cream); }
-.nav--on-dark:not(.is-scrolled) .brandmark .mark-dot { background: var(--accent); }
-.nav--on-dark:not(.is-scrolled) .brandmark sup { color: oklch(0.65 0.015 252); }
+.nav--on-dark:not(.is-scrolled) .nav__logo {
+  filter: brightness(0) invert(1);
+  opacity: 0.95;
+}
+.nav--on-dark:not(.is-scrolled) .nav__logo-sep {
+  background: oklch(0.80 0.04 218);
+}
 .nav--on-dark:not(.is-scrolled) .nav__menu li > a { color: var(--cream); }
 .nav--on-dark:not(.is-scrolled) .nav__menu li > a::after { background: var(--cream); }
 .nav--on-dark:not(.is-scrolled) .lang { color: oklch(0.60 0.015 252); }
